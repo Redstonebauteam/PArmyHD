@@ -32,3 +32,52 @@ activityManager.UpdateActivity(activity, (result) =>
         Console.WriteLine("Failed");
     }
 });
+var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);
+
+// Update user's activity for your game.
+// Party and secrets are vital.
+var activity = new Discord.Activity
+{
+  State = "olleh",
+  Details = "foo details",
+  Timestamps =
+  {
+      Start = 5,
+      End = 6,
+  },
+  Assets =
+  {
+      LargeImage = "foo largeImageKey",
+      LargeText = "foo largeImageText",
+      SmallImage = "foo smallImageKey",
+      SmallText = "foo smallImageText",
+  },
+  Party =
+  {
+      Id = "foo partyID",
+      Size = {
+          CurrentSize = 1,
+          MaxSize = 4,
+      },
+  },
+  Secrets =
+  {
+      Match = "foo matchSecret",
+      Join = "foo joinSecret",
+      Spectate = "foo spectateSecret",
+  },
+  Instance = true,
+};
+
+activityManager.UpdateActivity(activity, (result) =>
+{
+    Console.WriteLine("Update Activity {0}", result);
+
+    // Send an invite to another user for this activity.
+    // Receiver should see an invite in their DM.
+    // Use a relationship user's ID for this.
+    activityManager.InviteUser(364843917537050999, Discord.ActivityActionType.Join, "", (inviteUserResult) =>
+    {
+        Console.WriteLine("Invite User {0}", inviteUserResult);
+    });
+});
