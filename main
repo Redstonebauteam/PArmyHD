@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:/Users/User/PycharmProjects/pyexBot/main.py", line 1, in <module>
+    import discord
+  File "C:\Users\User\PycharmProjects\pyexBot\venv\lib\site-packages\discord__init__.py", line 20, in <module>
+    from .client import Client, AppInfo, ChannelPermissions
+  File "C:\Users\User\PycharmProjects\pyexBot\venv\lib\site-packages\discord\client.py", line 38, in <module>
+    from .state import ConnectionState
+  File "C:\Users\User\PycharmProjects\pyexBot\venv\lib\site-packages\discord\state.py", line 36, in <module>
+    from . import utils, compat
+  File "C:\Users\User\PycharmProjects\pyexBot\venv\lib\site-packages\discord\compat.py", line 32
+    create_task = asyncio.async
+                              ^
+SyntaxError: invalid syntax
